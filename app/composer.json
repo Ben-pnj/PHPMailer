@@ -12,6 +12,7 @@
         "friendsofphp/php-cs-fixer": "^3.90"
     },
     "require": {
-        "symfony/var-dumper": "^8.0"
+        "symfony/var-dumper": "^8.0",
+        "phpmailer/phpmailer": "^7.0"
     }
 }

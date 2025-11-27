@@ -32,11 +32,6 @@ RUN docker-php-ext-install zip
 # OPCache
 RUN docker-php-ext-install opcache
 
-# Xdebug via PECL (compatible PHP <= 8.4.x)
-RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug
-
-COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # ---------------------------------------------------------
 # 3) Apache : mod_rewrite + Composer
