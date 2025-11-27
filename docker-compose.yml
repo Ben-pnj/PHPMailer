@@ -1,0 +1,11 @@
+services:
+  web:
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    container_name: app_web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./app:/var/www/html:cached
+    restart: unless-stopped
