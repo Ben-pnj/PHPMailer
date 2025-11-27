@@ -1,12 +1,21 @@
 <?php
 
 declare(strict_types=1);
+
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
+use Dotenv\Dotenv;
 
 
-require_once dirname (__DIR__).'/vendor/autoload.php';
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
+
 $mailer = new PHPMailer();
 
 try {
@@ -17,8 +26,8 @@ try {
     //authentification avec SMTP
     $mailer->Host = 'smtp.gmail.com';
     $mailer->SMTPAuth = true;
-    $mailer->Username = 'ben.voydie64@gmail.com';
-    $mailer->Password = 'rrad ataz ybca zfzr';
+    $mailer->Username = $_ENV['GMAIL_USER'];
+    $mailer->Password = $_ENV['GMAIL_PASS'];
     $mailer->SMTPSecure = 'tls';
     $mailer->Port = 587;
 
